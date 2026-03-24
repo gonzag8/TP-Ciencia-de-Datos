@@ -1,18 +1,46 @@
-# Trabajo Práctico - Ciencia de Datos (2026)
+# **Trabajo Práctico - Ciencia de Datos (2026)**
 
-Este proyecto desarrolla el primer TP de la cátedra **Ciencia de Datos** en la **UTN Santa Fe**. El objetivo principal es aplicar técnicas de análisis y modelado sobre un conjunto de datos sintéticos de mantenimiento predictivo industrial.
+Este proyecto desarrolla el primer TP de la cátedra Ciencia de Datos en la UTN Santa Fe. El objetivo principal es aplicar técnicas de análisis y modelado sobre un conjunto de datos sintéticos de mantenimiento predictivo industrial.
 
-### Contenido del Proyecto
+**Contenido del Proyecto**
 
-El trabajo se divide en dos etapas desarrolladas con **Python**:
+El trabajo se divide en dos etapas desarrolladas con Python:
 
-* **Parte 1: Análisis Exploratorio (EDA):** Estudio de variables mediante medidas estadísticas (tendencia central, dispersión), distribuciones y relaciones gráficas.
-* **Parte 2: Modelado Predictivo:**
-    * **Preprocesamiento:** Limpieza de datos, tratamiento de valores atípicos, normalización y balanceo del dataset.
-    * **Entrenamiento:** Implementación de al menos dos modelos de aprendizaje automático y un modelo ensamblado.
-    * **Evaluación:** Optimización de hiperparámetros y comparación de rendimientos mediante métricas y gráficas.
+**Parte 1: Análisis Exploratorio (EDA):** Estudio de variables mediante medidas estadísticas (tendencia central, dispersión), distribuciones y relaciones gráficas.
 
-### Entregables
+**Parte 2: Modelado Predictivo:**
+- *Preprocesamiento:* Limpieza de datos, tratamiento de valores atípicos, normalización y balanceo del dataset.
+- *Entrenamiento:* Implementación de al menos dos modelos de aprendizaje automático y un modelo ensamblado.
+- *Evaluación:* Optimización de hiperparámetros y comparación de rendimientos mediante métricas y gráficas.
 
-* **Notebook (.ipynb):** Código fuente con la solución completa.
-* **Informe:** Documentación detallada de los resultados y técnicas utilizadas.
+**Entregables**
+- Notebook (`.ipynb`): Código fuente con la solución completa.
+- Informe: Documentación detallada de los resultados y técnicas utilizadas.
+
+---
+
+**Cómo ejecutar el proyecto**
+
+**1. Clonar el repositorio**
+```bash
+git clone https://github.com/gonzag8/TP-Ciencia-de-Datos.git
+cd TP-CIencia-de-Datos
+```
+
+**2. Crear y activar el entorno virtual**
+
+| | Windows | Linux / macOS |
+|---|---|---|
+| Crear | `python -m venv venv` | `python3 -m venv venv` |
+| Activar | `venv\Scripts\activate` | `source venv/bin/activate` |
+| Desactivar | `deactivate` | `deactivate` |
+
+**3. Instalar dependencias**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Iniciar Jupyter**
+```bash
+jupyter notebook
+```
