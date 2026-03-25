@@ -19,7 +19,7 @@ El trabajo se divide en dos etapas desarrolladas con Python:
 
 ---
 
-**Cómo ejecutar el proyecto**
+**Pasos para ejecutar el proyecto**
 
 **1. Clonar el repositorio**
 ```bash
