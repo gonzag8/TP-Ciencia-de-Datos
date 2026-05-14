@@ -1,0 +1,7 @@
+-Para hacer KNNImputar Habra que normalizar los datos asi no tienen mas pesos los que manejan mayor magnitud por la unidad, por ejemplo la temperatura tendria mucho mas peso que product type.
+
+- En los histogramas de medidas de tendencia central,la speed es como una exponencial pero con outliers a la izquierda que la dezplazan en el eje x.
+
+- Correlacionar product type H con faiulures y rpm
+
+- 
