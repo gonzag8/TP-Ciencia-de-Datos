@@ -1,0 +1,10 @@
+tensorflow
+tensorboard
+keras-tuner
+scikit-learn
+pandas
+numpy
+matplotlib
+seaborn
+opencv-python
+jupyter
