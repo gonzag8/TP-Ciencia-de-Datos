@@ -138,27 +138,27 @@
 ## Diapositiva 16 — MLP frente al ensamblado (5:00 – 5:20) · *Eje 3*
 *Visual: barras AUC: Random Forest 0.997 vs MLP 0.991.*
 
-> Comparemos de frente el MLP con el mejor clásico. **Random Forest gana en todas las métricas** —accuracy, F1 y AUC—, aunque por un margen estrecho. Es un resultado revelador: el modelo "más fácil de explicar" —un conjunto de árboles— **iguala o supera** a la red neuronal en este problema.
+> Bueno, comparando de frente el MLP con Random Forest podemos ver que **Random Forest logra gana en todas las métricas** (accuracy, F1 y AUC). Este resultado es interesante, ya que el modelo más fácil de explicar (un conjunto de árboles de decisión) logró superar al MLP en este problema.
 
 ## Diapositiva 17 — ¿Se justifica la complejidad del MLP? (5:20 – 5:40) · *Eje 3*
 *Visual: balanza complejidad vs ganancia.*
 
-> Entonces, la pregunta de la consigna: ¿la mayor complejidad del MLP se justifica? **Para este problema, no.** Exige estandarización obligatoria, ajuste de muchos hiperparámetros y un entrenamiento más delicado, y aun así **no mejora** al ensamblado. La complejidad solo se paga cuando entrega una ventaja clara, y aquí no la hay.
+> Entonces, la pregunta a realizar es: ¿la mayor complejidad del MLP se justifica? **La respuesta para este problema específico es que no:**  Ya que exige estandarizar los datos, ajustar muchos hiperparámetros y un entrenamiento más delicado, y aun así **no logra mejorar** respecto al ensamblado.
 
 ## Diapositiva 18 — Precisión vs interpretabilidad (5:40 – 6:00) · *Eje 4*
 *Visual: eje "caja negra" (MLP) ↔ "explicable" (árbol/RF).*
 
-> El otro eje de decisión es la **interpretabilidad**. El MLP es una **caja negra**: predice bien, pero no explica por qué. Un árbol o un Random Forest dan **reglas e importancia de cada variable**. En una planta, un técnico necesita saber *qué* condición disparó la alarma para actuar, no solo recibir un número.
+> Un factor importante a considerar es la **interpretabilidad**. El MLP es una **caja negra**: predice bien, pero no explica por qué. En cambio, un Random Forest da **reglas e importancia de cada variable**. En una planta, un técnico necesita saber *qué* condición disparó la alarma para actuar, no solamente recibir un número.
 
 ## Diapositiva 19 — Modelo elegido para la planta (6:00 – 6:20) · *Eje 4*
 *Visual: "Modelo recomendado: Random Forest" con sus métricas.*
 
-> Por eso, para una implementación **real en planta**, elegimos **Random Forest**: mejor performance, robustez e **importancia de variables** que respalda cada predicción. El costo de reentrenar, 3,7 segundos, es irrelevante frente a esa ventaja. La red queda como alternativa válida, pero no como la opción óptima aquí.
+> Por eso, para una implementación **real en planta**, elegimos **Random Forest**: por su mejor desempeño, robustez e **importancia de variables** que respalda cada predicción. El costo de reentrenar de solo 3,7 segundos, es otra ventaja bien clara. El MLP queda como una alternativa válida, pero no como la opción óptima en este caso.
 
 ## Diapositiva 20 — Conclusión y cierre (6:20 – 6:40) · *Eje 4*
 *Visual: 3 ideas finales + nombres del equipo.*
 
-> En síntesis: el MLP es potente y exige un preprocesamiento cuidadoso, pero **más complejidad no garantizó mejores resultados**. El criterio ganó: elegimos el modelo que combina **precisión e interpretabilidad** para un entorno industrial real. Gracias —Gaitán, Debona, Agüero y Ocampo.
+> En resumen: el MLP es potente, pero en este caso **más complejidad no garantizó mejores resultados**. El modelo seleccionado resultó siendo el modelo con el mejor balance de **precisión, interpretabilidad y velocidad de entrenamiento**. Gracias —Gaitán, Debona, Agüero y Ocampo.
 
 ---
 
