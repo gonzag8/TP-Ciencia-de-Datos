@@ -78,27 +78,27 @@
 ## Diapositiva 6 — Arquitectura final (1:40 – 2:00) · *Eje 1*
 *Visual: 8 entrada → 32 (ReLU) → 32 (ReLU) → 1 (Sigmoid).*
 
-> La arquitectura: capa de entrada de **8 neuronas**, una por feature; **dos capas ocultas** de 32 neuronas; y una **única neurona de salida**. Dos capas alcanzan para 8 variables; una sola salida basta porque es clasificación binaria. En total: apenas **1.377 parámetros**, un modelo muy liviano.
+> Pasando a la arquitectura, se armó algo bastante simple. Tenemos una capa de entrada con 8 neuronas, una por cada característica. Le siguen dos capas ocultas de 32 neuronas cada una, y terminamos en una única neurona de salida. En total, unos mil trescientos parámetros. Un modelo bastante liviano para ser neuronal.
 
 ## Diapositiva 7 — Funciones de activación (2:00 – 2:20) · *Eje 1*
 *Visual: curvas ReLU y Sigmoid lado a lado.*
 
-> En las capas ocultas usamos **ReLU**: es el estándar moderno, evita el desvanecimiento del gradiente y es muy eficiente. En la salida usamos **Sigmoid**, que mapea el resultado al rango cero–uno, interpretándolo directamente como **probabilidad de falla**. No usamos Softmax porque eso aplica cuando hay varias clases de salida.
+> Para las activaciones, en las capas ocultas fuimos por ReLU: es el estándar hoy en día porque es rápido y evita ciertos problemas con el gradiente. En la salida usamos Sigmoid, que mapea el resultado entre cero y uno, lo cual se interpreta directamente como probabilidad de falla. No usamos Softmax porque eso aplica cuando hay varias clases de salida.
 
 ## Diapositiva 8 — Función de pérdida y regularización (2:20 – 2:40) · *Eje 1*
 *Visual: fórmula binary_crossentropy + esquema de Dropout.*
 
-> Como pérdida elegimos **binary cross-entropy**, la función canónica para clasificación binaria: penaliza fuerte cuando el modelo está seguro y se equivoca. Para evitar sobreajuste contemplamos **Dropout** y **regularización L2**, dejando que la búsqueda automática decida cuánta regularización realmente hacía falta.
+> ¿Cómo medimos el error? Para esto usamos Binary Cross-Entropy, que es la clásica para problemas binarios y penaliza fuerte si el modelo se equivoca estando muy seguro. Para evitar el sobreajuste, también le ofrecimos usar Dropout y regularización L2, pero dejamos que el algoritmo decida si realmente hacían falta mediante RandomSearch.
 
 ## Diapositiva 9 — Búsqueda de hiperparámetros (2:40 – 3:00) · *Eje 1*
 *Visual: tabla del espacio de búsqueda + logo Keras Tuner.*
 
-> No elegimos los hiperparámetros a mano. Usamos **Keras Tuner con RandomSearch**: 50 ensayos sobre un espacio de casi mil combinaciones —neuronas, learning rate, dropout, L2 y optimizador—. Optimizamos sobre **val_loss**, no accuracy, porque en fallas industriales nos importa **estimar bien la probabilidad**, no solo acertar la etiqueta.
+> Todo esto no se configuró a mano. Usamos Keras Tuner con RandomSearch obteniendo 50 ensayos de un espacio de casi mil combinaciones. Y un detalle clave: optimizamos sobre la pérdida de validación, no el accuracy, ya que en la industria nos importa mucho más estimar bien la probabilidad de falla, no solo acertar la etiqueta.
 
 ## Diapositiva 10 — Configuración óptima y entrenamiento (3:00 – 3:20) · *Eje 1*
 *Visual: config final (Adam, lr 0.01, batch 64) + curvas de loss/accuracy.*
 
-> El mejor modelo: optimizador **Adam**, learning rate 0.01, batch size 64, sin dropout ni L2 —la red era tan chica que no los necesitó—. Entrenamos con **EarlyStopping** para frenar al dejar de mejorar. Las curvas convergen bien, con una validación algo inestable, propia de un dataset acotado.
+> Finalmente, el modelo ganador usó el optimizador Adam. Un dato curioso es que rechazó el Dropout y la regularización L2; teorizamos que al ser una red tan chica, no los necesitó. Tambien usamos Early Stopping para frenar cuando el modelo dejaba de aprender. Como se puede ver, las curvas convergieron bien, aunque la validación resultó algo inestable, algo esperable dado el tamaño del dataset.
 
 ---
 
